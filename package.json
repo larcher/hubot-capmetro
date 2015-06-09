@@ -1,0 +1,22 @@
+{
+  "name": "hubot-capmetro",
+  "version": "0.0.1",
+  "description": "Next CapMetro bus times for Hubot",
+  "keywords": [
+    "hubot",
+    "bus",
+    "capmetro",
+    "austin",
+    "atx"
+  ],
+  "author": "Larry Archer <larcher@spoon.cx>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/larcher/hubot-capmetro"
+  },
+  "readmeFilename": "README.md",
+  "main": "index.coffee",
+  "dependencies": {
+    "hubot": ">= 2.4.0"
+  }
+}
