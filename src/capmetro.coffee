@@ -5,7 +5,7 @@
 #   none
 #
 # configuration:
-#   none
+#   HUBOT_CAPMETRO_BUSES - JSON object matching Buses with Stop IDs - Ex: '{ "803N": 5865, "1N": 1042 }'
 #
 # commands:
 #   hubot next <bus number> - get the next departure time of that bus
@@ -15,28 +15,13 @@
 #   larcher
 
 
-# match up buses with Stop ID's
-bus_stops = {
-  "803N" :  5865,
-  "801N" :  5865,
-  "1N"   :  1042,
-  "3N"   :  1042,
-  "5N"   :  1042,
-  "982N" :  1042,
-  "983N" :  1042,
-  "987N" :  1042,
-  "640C" :  1042,
-  "19N"  :  1042,
-  "803S" :  497,
-  "801S" :  497,
-  "1S"   :  497,
-  "3S"   :  497,
-  "5S"   :  497,
-  "982S" :  497,
-  "983S" :  497,
-  "987S" :  497,
-  "19S"  :  497,
-}
+# Load up a list of buses and Stop ID's
+bus_stops_string = process.env.HUBOT_CAPMETRO_BUSES
+if not bus_stops_string
+    console.log "Need to define some buses and stops in HUBOT_CAPMETRO_BUSES"
+    process.exit(1)
+
+bus_stops = JSON.parse(bus_stops_string)
 
 # If you don't specify a direction after the bus number, use this direction
 default_dir = 'N'
