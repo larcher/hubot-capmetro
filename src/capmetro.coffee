@@ -24,7 +24,7 @@ if not bus_stops_string
 bus_stops = JSON.parse(bus_stops_string)
 
 # If you don't specify a direction after the bus number, use this direction
-default_dir = 'N'
+default_dir = process.env.HUBOT_CAPMETRO_DEFAULT_DIR || "N"
 
 module.exports = (robot) ->
   robot.respond /next ([0-9]+) ?([nsewc]?)\b(after that)?/i, (msg) ->
