@@ -27,7 +27,7 @@ bus_stops = JSON.parse(bus_stops_string)
 default_dir = process.env.HUBOT_CAPMETRO_DEFAULT_DIR || "N"
 
 module.exports = (robot) ->
-  robot.respond /next ([0-9]+) ?([nsewc]?)\b(after that)?/i, (msg) ->
+  robot.respond /next +([0-9]+) *([nsewc]?) *(after that)?/i, (msg) ->
     route = msg.match[1]
     dir = msg.match[2]
     nextnext = msg.match[3]
