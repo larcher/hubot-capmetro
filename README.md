@@ -37,10 +37,14 @@ An example interaction, using the buses specified above:
     larcher: hubot next 19
     hubot: Next 19 heading N will arrive in 5 minutes (04:21 PM)
 
+If that bus is too soon, you can ask when the next one is coming:
+
     larcher: hubot, next 19 after that
     hubot: Second 19 heading N will arrive in 26 minutes (04:42 PM)
 
-And here's an example of the default direction setting.  To be able to retrieve times for the 803 going north and south from Guadalupe at UT's West Mall, you might configure Hubot like this:
+And here's an example of the default direction setting.  To be able to retrieve
+times for the 803 going north and south from Guadalupe at UT's West Mall, you
+might configure Hubot like this:
 
     export HUBOT_CAPMETRO_BUSES='{ "803N": 5865, "803S": 497 }'
     export HUBOT_CAPMETRO_DEFAULT_DIR='N'
@@ -53,3 +57,7 @@ And interact with him like so:
     larcher: hubot next 803s
     hubot: Next 803 heading S will arrive in 3 minutes (04:19 PM)
 
+Sometimes real-time bus arrival information is  not available.  The CapMetro API exposes this fact, and Hubot in turn will let you know 
+
+    larcher: hubot next 5 
+    hubot: Next 5 heading N will arrive in 10 minutes (05:29 PM) (realtime data not available)
